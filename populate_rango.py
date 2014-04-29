@@ -56,7 +56,7 @@ def add_cat(name):
     return c
 
 # Start execution here!
-#
+# won't run in pycharm terminal if not in venv
 if __name__ == '__main__':
     print "Starting Rango population script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
