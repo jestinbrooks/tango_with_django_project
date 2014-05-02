@@ -8,15 +8,19 @@
         <h1>{{ category_name }}</h1>
         {% if category %}
             {% if pages %}
-            <ul>
-                {% for page in pages %}
-                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
-            </ul>
-            <a href="/rango/add_page/{{ category.url }}/">new page</a>
+                <ul>
+                    {% for page in pages %}
+                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% if user.is_authenticated %}
+                    <a href="/rango/add_page/{{ category.url }}/">new page</a>
+                {% endif %}
             {% else %}
                 <strong>No pages currently in category.</strong>
-                <a href="/rango/add_page/{{ category.url }}/">new page</a>
+                {% if user.is_authenticated %}
+                    <a href="/rango/add_page/{{ category.url }}/">new page</a>
+                {% endif %}
             {% endif %}
         {% else %}
             The specified category {{ category_name }} does not exist! Would you like to add a
