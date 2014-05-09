@@ -12,7 +12,15 @@
                 <li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>
             {% endfor %}
         </ul>
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                    <li><a href="/rango/category/{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% else %}
         <strong>There are no categories</strong>
     {% endif %}
+
 {% endblock %}
